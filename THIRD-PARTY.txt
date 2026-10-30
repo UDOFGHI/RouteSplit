@@ -1,0 +1,24 @@
+RouteSplit third-party components
+
+ProxyBridgeCore.dll: ProxyBridge 4.3.0, MIT.
+https://github.com/InterceptSuite/ProxyBridge/tree/v4.3.0_Windows
+License: third-party/ProxyBridge-LICENSE.txt
+
+WinDivert.dll and WinDivert64.sys: WinDivert 2.2.2, LGPLv3 option.
+https://github.com/basil00/WinDivert/tree/v2.2.2
+License texts: third-party/WinDivert-LICENSE.txt
+Corresponding upstream source: third-party/WinDivert-2.2.2-source.zip
+These third-party libraries are unmodified.
+
+Compatible dynamic library replacement:
+Close RouteSplit and its network session. In the application directory, create
+a UTF-8 text file named native-libraries.custom containing exactly:
+allow-compatible-replacements
+
+RouteSplit will then allow compatible replacement native libraries without
+requiring recompilation of the application. The default SHA-256 checks apply
+when this file is absent. Windows still applies its own kernel driver signature
+requirements. The native libraries must retain their filenames and public ABI.
+Reverse engineering for debugging modifications to the LGPL library is permitted.
+
+No RouteSplit application source is included in this public package.
